@@ -1,0 +1,441 @@
+<html lang="en">
+
+<head>
+  <title>t0xicn3t</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="discord.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicons//apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/favicons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="icon" href="favicons/favicon.ico">
+  <link rel="stylesheet" href="/style.css">
+  <script src="bridge.js"></script>
+    
+   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    pre {
+           background-color: black;
+           color:#7DF9FF; /* Green text color */
+           padding: 10px;
+           border: 1px solid #f008c9;
+           font-size: 16px;
+           line-height: 1.4;
+           font-family: "Courier New", Courier, monospace;
+           white-space: pre-wrap; /* Preserve line breaks and wrap text */
+           overflow-x: auto; /* Enable horizontal scrolling if necessary */
+       }
+
+       pre:before {
+           content: "$ "; /* Display a simulated prompt */
+           color: #7DF9FF; /* Green prompt color */
+       }
+       
+       #terminal-input {
+           color: #7DF9FF; /* Electric blue text color for input */
+           border: none;
+           background: transparent;
+           font-family: "Courier New", Courier, monospace;
+           font-size: 16px;
+           outline: none;
+       }
+</style>
+  <style>
+ 
+.skills { padding-block: var(--section-padding); }
+
+.skills-content { margin-bottom: 50px; }
+
+.skills-toggle {
+  background: var(--bg-secondary);
+  position: relative;
+  width: max-content;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: var(--shadow-1);
+  z-index: 1;
+}
+
+.skills-toggle::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  bottom: 5px;
+  width: 93px;
+  background: var(--raw-seinna);
+  border-radius: 100px;
+  transition: var(--transition-1);
+  z-index: -1;
+}
+
+.skills-toggle.active::before {
+  left: 98px;
+  width: 94px;
+}
+
+.toggle-btn {
+  color: var(--color-primary);
+  font-family: var(--ff-poppins);
+  padding: 5px 25px;
+  transition: var(--transition-1);
+}
+
+.toggle-btn.active { color: var(--white); }
+
+.skills-box.active .skills-list,
+.skills-box .tools-list { display: none; }
+
+.skills-box .skills-list,
+.skills-box.active .tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+
+}
+
+.skill-card {
+  position: relative;
+  background: var(--bg-secondary);
+  width: 80px;
+  height: 80px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-12);
+  box-shadow: var(--shadow-1);
+  cursor: help;
+}
+
+.skill-card:hover .tooltip {
+  transform: translateY(0);
+  opacity: 1;
+}
+ /**
+   * SKILLS
+   */
+
+   .skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .skills-content { margin-bottom: 0; }
+
+  .skills-toggle { margin-inline: 0; }
+
+
+
+  </style>
+</head>
+
+<body>
+
+
+  <main>
+
+   
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+         
+  <button id="login-btn" onclick="login()">Login with Discord</button>
+
+  
+
+    <script>
+        // Replace with your Discord application's client ID and redirect URI
+        const clientId = '1001933562565644338';
+        const redirectUri = 'https://t0xicn3t.github.io/home.html';
+
+        function login() {
+            window.location.href = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=identify`;
+        }
+
+        function handleLogin() {
+            const hash = window.location.hash.substring(1);
+            const params = new URLSearchParams(hash);
+
+            const accessToken = params.get('access_token');
+            if (accessToken) {
+                fetch('https://discord.com/api/users/@me', {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    displayUserInfo(data);
+                })
+                .catch(error => console.error('Error fetching user info:', error));
+            }
+        }
+
+        function displayUserInfo(user) {
+            document.getElementById('login-btn').style.display = 'none';
+            document.getElementById('user-info').style.display = 'block';
+            document.getElementById('avatar').src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+            document.getElementById('username').innerText = user.username;
+            // You can access more user data from the 'user' object and update the corresponding elements
+        }
+
+        // Check if the page was redirected from Discord with access token
+        if (window.location.hash.includes('access_token')) {
+            handleLogin();
+        }
+    </script>
+
+        
+        
+        
+        
+        
+          <pre>  <div id="user-info">
+        <img id="avatar" alt="User Avatar">
+        <h1 id="username"></h2>
+        <p id="aboutme"></p>
+        <p id="role"></p>
+        <p id="activity"></p>
+    </div> 
+          </pre>
+        </div>
+       
+         
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:cubedimension@protonmail.com" class="contact-link">cubedimension@protonmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="https://ai.glitch" class="contact-link">+1 87974388854</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+        
+      </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Neon Alley 77, Kowloon Walled City, Hong Kong</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://github.com/haydenzbanz/" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://twitter.com/0x_hayd3n" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.instagram.com/0x_hayden" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button onclick="window.location.href='blog.html'" class="navbar-link" data-nav-link>Blog</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" onclick="window.location.href='portfolio.html'" data-nav-link>Portfolio</button>
+          </li>
+
+          <li class="navbar-item">
+            <button  onclick="window.location.href='#'" class="navbar-link" data-nav-link>Courses</button>
+          </li>
+<li class="navbar-item">
+  <button class="navbar-link" onclick="window.location.href='contact.html'">Contact</button>
+</li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">chatter box</h2>
+        </header>
+
+        <section class="about-text">
+		
+		<style>
+			
+			
+		</style>
+          <p><h6 class="gradient-text">
+           
+
+
+    <pre id="terminal-output">
+    [Hᴀʏᴅᴇɴ@ʀᴏᴏᴛ ~/ɢʟɪᴛᴄʜ]$ 
+    ɢʟɪᴛᴄʜᴠᴇɴᴏᴍ -ᴘ ᴀɴᴅʀᴏɪᴅ ʟʜsᴏᴛ=ɢʟɪᴛᴄʜ.ɴɢʀᴏᴋ.ɪᴏ ʟᴘᴏʀᴛ=80 R> ʀᴇᴍᴏᴛᴇsʜᴇʟʟ.ᴀᴘᴋ
+
+
+ [Hayden@root ~/glitch]$
+    </pre>
+    <div class="container">
+      <input type="text" id="sender-id" placeholder="Sender ID" width="30">      <input type="text" id="recipient" placeholder="Recipient" width="30"> <input type="text" id="message" placeholder="Message" width="50"><input type="file" id="file-input">
+    
+      <button onclick="sendMessage()"><ion-icon name="paper-plane"></ion-icon></button>
+  </div>
+ 
+
+  <style>
+    /* Style for the container div */
+    .container {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Style for the input elements */
+    input[type="text"] {
+        border: none;
+        background: transparent;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 16px;
+        color: #7DF9FF; /* Electric blue text color */
+        outline: none;
+        margin-right: 10px; /* Add spacing between input elements */
+    }
+
+    /* Style for the button */
+    button {
+        background: transparent;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 16px;
+        color: #7DF9FF; /* Electric blue text color */
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
