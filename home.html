@@ -1,0 +1,793 @@
+<html lang="en">
+
+<head>
+  <title>t0xicn3t</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="discord.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicons//apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/favicons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="icon" href="favicons/favicon.ico">
+  <link rel="stylesheet" href="/style.css">
+  <script src="bridge.js"></script>
+    
+   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    pre {
+           background-color: black;
+           color:#7DF9FF; /* Green text color */
+           padding: 10px;
+           border: 1px solid #f008c9;
+           font-size: 16px;
+           line-height: 1.4;
+           font-family: "Courier New", Courier, monospace;
+           white-space: pre-wrap; /* Preserve line breaks and wrap text */
+           overflow-x: auto; /* Enable horizontal scrolling if necessary */
+       }
+
+       pre:before {
+           content: "$ "; /* Display a simulated prompt */
+           color: #7DF9FF; /* Green prompt color */
+       }
+       
+       #terminal-input {
+           color: #7DF9FF; /* Electric blue text color for input */
+           border: none;
+           background: transparent;
+           font-family: "Courier New", Courier, monospace;
+           font-size: 16px;
+           outline: none;
+       }
+</style>
+  <style>
+ 
+.skills { padding-block: var(--section-padding); }
+
+.skills-content { margin-bottom: 50px; }
+
+.skills-toggle {
+  background: var(--bg-secondary);
+  position: relative;
+  width: max-content;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: var(--shadow-1);
+  z-index: 1;
+}
+
+.skills-toggle::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  bottom: 5px;
+  width: 93px;
+  background: var(--raw-seinna);
+  border-radius: 100px;
+  transition: var(--transition-1);
+  z-index: -1;
+}
+
+.skills-toggle.active::before {
+  left: 98px;
+  width: 94px;
+}
+
+.toggle-btn {
+  color: var(--color-primary);
+  font-family: var(--ff-poppins);
+  padding: 5px 25px;
+  transition: var(--transition-1);
+}
+
+.toggle-btn.active { color: var(--white); }
+
+.skills-box.active .skills-list,
+.skills-box .tools-list { display: none; }
+
+.skills-box .skills-list,
+.skills-box.active .tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+
+}
+
+.skill-card {
+  position: relative;
+  background: var(--bg-secondary);
+  width: 80px;
+  height: 80px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-12);
+  box-shadow: var(--shadow-1);
+  cursor: help;
+}
+
+.skill-card:hover .tooltip {
+  transform: translateY(0);
+  opacity: 1;
+}
+ /**
+   * SKILLS
+   */
+
+   .skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .skills-content { margin-bottom: 0; }
+
+  .skills-toggle { margin-inline: 0; }
+
+
+
+  </style>
+</head>
+
+<body>
+
+  
+  <main>
+
+   
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+         
+   <style>
+        #userInfo {
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        #userInfo p {
+            display: inline;
+        }
+    </style>
+       <style>
+  .social {
+    display: flex;
+    align-items: center;
+        }
+
+     
+    
+    </style>
+   
+<div id="userInfo" style="display: none;">
+  <div class="user-profile">
+    <img id="avatar" alt="User Avatar" crossOrigin="anonymous">
+    <div class="user-info">
+      <p id="username"></p>
+      <p id="aboutMe"></p>
+    </div>
+  </div>
+</div>
+        <script>$$(document).ready(function() {
+    const clientId = "1174498174602313809"; // Replace with your actual client ID
+    const redirectUri = "https://t0xicn3t.glitch.me/home.html"; // Your actual redirect URI
+    const scope = "identify";
+
+    const loginButton = $("#loginButton");
+    const userInfoDiv = $("#userInfo");
+    const avatarElement = $("#avatar");
+    const usernameElement = $("#username");
+
+    loginButton.click(function() {
+        window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${scope}`;
+    });
+
+    function parseHashParams() {
+        const hash = window.location.hash.substring(1);
+        const params = hash.split("&").reduce(function(acc, item) {
+            const [key, value] = item.split("=");
+            acc[key] = decodeURIComponent(value);
+            return acc;
+        }, {});
+        return params;
+    }
+
+    const params = parseHashParams();
+    if (params.access_token) {
+        localStorage.setItem('discordAccessToken', params.access_token);
+
+        fetch("https://discord.com/api/users/@me", {
+            headers: {
+                Authorization: `Bearer ${params.access_token}`,
+            },
+        })
+        .then(response => response.json())
+        .then(user => {
+            const avatarUrl = user.avatar ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png` : "https://discord.com/assets/322c936a8c8be1b803cd94861bdfa868.png";
+            avatarElement.attr("src", avatarUrl);
+            usernameElement.text(`Hello, ${user.username}#${user.discriminator}!`);
+            userInfoDiv.show();
+            loginButton.hide();
+        })
+        .catch(error => {
+            console.error("Error fetching user data:", error);
+        });
+    }
+});
+</script>
+
+        
+        
+        
+        
+        
+          <pre>
+          </pre>
+        </div>
+       
+         
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:cubedimension@protonmail.com" class="contact-link">cubedimension@protonmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="https://ai.glitch" class="contact-link">+1 87974388854</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+        
+      </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Neon Alley 77, Kowloon Walled City, Hong Kong</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://github.com/haydenzbanz/" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://twitter.com/0x_hayd3n" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.instagram.com/0x_hayden" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button onclick="window.location.href='blog.html'" class="navbar-link" data-nav-link>Blog</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" onclick="window.location.href='portfolio.html'" data-nav-link>Portfolio</button>
+          </li>
+
+          <li class="navbar-item">
+            <button  onclick="window.location.href='#'" class="navbar-link" data-nav-link>Courses</button>
+          </li>
+<li class="navbar-item">
+  <button class="navbar-link" onclick="window.location.href='contact.html'">Contact</button>
+</li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">chatter box</h2>
+        </header>
+
+        <section class="about-text">
+		
+		<style>
+			
+			
+		</style>
+          <p><h6 class="gradient-text">
+           
+
+
+    <pre id="terminal-output">
+    [Hᴀʏᴅᴇɴ@ʀᴏᴏᴛ ~/ɢʟɪᴛᴄʜ]$ 
+    ɢʟɪᴛᴄʜᴠᴇɴᴏᴍ -ᴘ ᴀɴᴅʀᴏɪᴅ ʟʜsᴏᴛ=ɢʟɪᴛᴄʜ.ɴɢʀᴏᴋ.ɪᴏ ʟᴘᴏʀᴛ=80 R> ʀᴇᴍᴏᴛᴇsʜᴇʟʟ.ᴀᴘᴋ
+
+
+ [Hayden@root ~/glitch]$
+    </pre>
+    <div class="container">
+      <input type="text" id="sender-id" placeholder="Sender ID" width="30">      <input type="text" id="recipient" placeholder="Recipient" width="30"> <input type="text" id="message" placeholder="Message" width="50"><input type="file" id="file-input">
+    
+      <button onclick="sendMessage()"><ion-icon name="paper-plane"></ion-icon></button>
+  </div>
+ 
+
+  <style>
+    /* Style for the container div */
+    .container {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Style for the input elements */
+    input[type="text"] {
+        border: none;
+        background: transparent;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 16px;
+        color: #7DF9FF; /* Electric blue text color */
+        outline: none;
+        margin-right: 10px; /* Add spacing between input elements */
+    }
+
+    /* Style for the button */
+    button {
+        background: transparent;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 16px;
+        color: #7DF9FF; /* Electric blue text color */
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+<script>
+  // Function to handle user input and display it in the terminal
+  function processInput(event) {
+      if (event.key === "Enter") {
+          sendMessage();
+      }
+  }
+
+  // Function to send a message with a file to Discord webhook
+  async function sendMessage() {
+      const senderId = document.getElementById("sender-id").value;
+      const recipient = document.getElementById("recipient").value;
+      const message = document.getElementById("message").value;
+      const fileInput = document.getElementById("file-input");
+      const outputElement = document.getElementById("terminal-output");
+
+      // Create a new line with the user's input
+      const newLine = document.createElement("div");
+      newLine.style.color = "#7DF9FF"; // Electric blue text color
+      newLine.textContent = " [Hayden@root ~/glitch]$ send-discord-message -s " + senderId + " -r " + recipient + " -m " + message;
+
+      // Append the user input to the terminal output
+      outputElement.appendChild(newLine);
+
+      // Prepare the payload for Discord webhook
+      const formData = new FormData();
+      formData.append("content", message);
+      formData.append("recipient", recipient);
+      formData.append("username", senderId);
+      formData.append("file", fileInput.files[0]); // Add the selected file
+
+      // Replace 'YOUR_DISCORD_WEBHOOK_URL' with your actual Discord webhook URL
+      const webhookUrl = 'https://discord.com/api/webhooks/1174523479677227130/SSlygPthMQmPSgli8suUEDOarVvR414A_yKhAtBchQH3jp3hMuM08BVs2v2ecb2IjsMc';
+
+      try {
+          // Send the message with the file to the Discord webhook using a POST request
+          const response = await fetch(webhookUrl, {
+              method: 'POST',
+              body: formData,
+          });
+
+          if (response.ok) {
+              // Display success message in terminal output
+              const responseLine = document.createElement("div");
+              responseLine.style.color = "#7DF9FF"; // Electric blue text color
+              responseLine.textContent = "Mᴇssᴀɢᴇ sᴇɴᴛ sᴜᴄᴄᴇssғᴜʟʟʏ.";
+              outputElement.appendChild(responseLine);
+          } else {
+              // Display error message in terminal output
+              const errorLine = document.createElement("div");
+              errorLine.style.color = "red";
+              errorLine.textContent = "Eʀʀᴏʀ: Fᴀɪʟᴇᴅ ᴛᴏ sᴇɴᴅ ᴍᴇssᴀɢᴇ.";
+              outputElement.appendChild(errorLine);
+          }
+      } catch (error) {
+          // Handle network or other errors
+          const errorLine = document.createElement("div");
+          errorLine.style.color = "red";
+          errorLine.textContent = "Error: " + error.message;
+          outputElement.appendChild(errorLine);
+      }
+
+      // Clear the input fields
+      document.getElementById("sender-id").value = "";
+      document.getElementById("recipient").value = "";
+      document.getElementById("message").value = "";
+      fileInput.value = ""; // Clear the file input
+  }
+</script>
+
+    
+<style>
+  /* Style for shields */
+  .shields {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .shield {
+      margin: 5px;
+  }
+
+  /* Style for contact links */
+  .contact-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+  }
+
+  .contact-link {
+      margin: 5px;
+  }
+</style>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+   
+          </p>
+        </section>
+       
+	    
+	    
+	     <!--
+          - service github
+        -->
+	    
+	  
+          
+
+      
+        
+        
+
+      </article>
+
+
+
+
+
+     
+      
+
+   
+
+    </div>
+
+  </main>
+
+  <style>
+    /* Hide the audio element */
+    #greetingAudio {
+        display: none;
+    }
+</style> <audio id="greetingAudio" autoplay>
+  <source src="audio.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+ <script src="https://karthithehacker.com/assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+  'use strict';
+
+
+
+// element toggle function
+const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+
+
+
+// sidebar variables
+const sidebar = document.querySelector("[data-sidebar]");
+const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+
+// sidebar toggle functionality for mobile
+sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+
+
+
+// testimonials variables
+const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
+const modalContainer = document.querySelector("[data-modal-container]");
+const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
+const overlay = document.querySelector("[data-overlay]");
+
+// modal variable
+const modalImg = document.querySelector("[data-modal-img]");
+const modalTitle = document.querySelector("[data-modal-title]");
+const modalText = document.querySelector("[data-modal-text]");
+
+// modal toggle function
+const testimonialsModalFunc = function () {
+  modalContainer.classList.toggle("active");
+  overlay.classList.toggle("active");
+}
+
+// add click event to all modal items
+for (let i = 0; i < testimonialsItem.length; i++) {
+
+  testimonialsItem[i].addEventListener("click", function () {
+
+    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
+    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+
+    testimonialsModalFunc();
+
+  });
+
+}
+
+// add click event to modal close button
+modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+overlay.addEventListener("click", testimonialsModalFunc);
+
+
+
+// custom select variables
+const select = document.querySelector("[data-select]");
+const selectItems = document.querySelectorAll("[data-select-item]");
+const selectValue = document.querySelector("[data-selecct-value]");
+const filterBtn = document.querySelectorAll("[data-filter-btn]");
+
+select.addEventListener("click", function () { elementToggleFunc(this); });
+
+// add event in all select items
+for (let i = 0; i < selectItems.length; i++) {
+  selectItems[i].addEventListener("click", function () {
+
+    let selectedValue = this.innerText.toLowerCase();
+    selectValue.innerText = this.innerText;
+    elementToggleFunc(select);
+    filterFunc(selectedValue);
+
+  });
+}
+
+// filter variables
+const filterItems = document.querySelectorAll("[data-filter-item]");
+
+const filterFunc = function (selectedValue) {
+
+  for (let i = 0; i < filterItems.length; i++) {
+
+    if (selectedValue === "all") {
+      filterItems[i].classList.add("active");
+    } else if (selectedValue === filterItems[i].dataset.category) {
+      filterItems[i].classList.add("active");
+    } else {
+      filterItems[i].classList.remove("active");
+    }
+
+  }
+
+}
+
+// add event in all filter button items for large screen
+let lastClickedBtn = filterBtn[0];
+
+for (let i = 0; i < filterBtn.length; i++) {
+
+  filterBtn[i].addEventListener("click", function () {
+
+    let selectedValue = this.innerText.toLowerCase();
+    selectValue.innerText = this.innerText;
+    filterFunc(selectedValue);
+
+    lastClickedBtn.classList.remove("active");
+    this.classList.add("active");
+    lastClickedBtn = this;
+
+  });
+
+}
+
+
+
+// contact form variables
+const form = document.querySelector("[data-form]");
+const formInputs = document.querySelectorAll("[data-form-input]");
+const formBtn = document.querySelector("[data-form-btn]");
+
+// add event to all form input field
+for (let i = 0; i < formInputs.length; i++) {
+  formInputs[i].addEventListener("input", function () {
+
+    // check form validation
+    if (form.checkValidity()) {
+      formBtn.removeAttribute("disabled");
+    } else {
+      formBtn.setAttribute("disabled", "");
+    }
+
+  });
+}
+
+
+
+// page navigation variables
+const navigationLinks = document.querySelectorAll("[data-nav-link]");
+const pages = document.querySelectorAll("[data-page]");
+
+// add event to all nav link
+for (let i = 0; i < navigationLinks.length; i++) {
+  navigationLinks[i].addEventListener("click", function () {
+
+    for (let i = 0; i < pages.length; i++) {
+      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+        pages[i].classList.add("active");
+        navigationLinks[i].classList.add("active");
+        window.scrollTo(0, 0);
+      } else {
+        pages[i].classList.remove("active");
+        navigationLinks[i].classList.remove("active");
+      }
+    }
+
+  });
+}</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
