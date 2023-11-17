@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="discord.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T0XIN3T</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #000000;
+        color: #094e4b;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+text{ color: #094e4b;}
+   
+
+    img {
+        width: 500px;
+        height: auto;
+    }
+
+
+ 
+</style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the value of the 'verify' parameter from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const verifyParam = urlParams.get('verify');
+
+            // Check if the 'verify' parameter is present and has the value '10_90'
+            if (verifyParam === '0_rid3') {
+                // Redirect to a specific page (replace 'redirect-page.html' with the actual page URL)
+                window.location.href = 'home.html';
+            } else {
+                // Display an image (replace 'error-image.jpg' with the actual image URL)
+                const imageContainer = document.getElementById('image-container');
+                imageContainer.innerHTML = '<img src="https://cdn.glitch.global/e052d52c-23b0-494f-ad77-263238b35da1/404.jpg?v=1700094611549" alt="Error Image">';
+
+                // Show a 404 error message
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = '';
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="img" id="image-container"></div><br>
+    <p class="text" id="error-message"></p>
+           
+   <style>
+        #userInfo {
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        #userInfo p {
+            display: inline;
+        }
+    </style>
+       <style>
+  .social {
+    display: flex;
+    align-items: center;
+        }
+
+     
+    
+    </style>
+    <br>
+
+<button id="loginButton">Login with Discord</button>
+
+</script>
+</body>
+</html>
