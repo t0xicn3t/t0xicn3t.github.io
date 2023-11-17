@@ -1,432 +1,312 @@
-<html lang="en">
 
+<!DOCTYPE html>
+<html>
 <head>
-  <title>t0xicn3t</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="discord.js"></script>
+  <link rel="stylesheet" href="https://code-glitchers.github.io/stylex.css">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/favicons//apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="/favicons/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
-  <link rel="icon" href="favicons/favicon.ico">
-  <link rel="stylesheet" href="/style.css">
-  <script src="bridge.js"></script>
-    
-   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <style>
-    pre {
-           background-color: black;
-           color:#7DF9FF; /* Green text color */
-           padding: 10px;
-           border: 1px solid #f008c9;
-           font-size: 16px;
-           line-height: 1.4;
-           font-family: "Courier New", Courier, monospace;
-           white-space: pre-wrap; /* Preserve line breaks and wrap text */
-           overflow-x: auto; /* Enable horizontal scrolling if necessary */
-       }
 
-       pre:before {
-           content: "$ "; /* Display a simulated prompt */
-           color: #7DF9FF; /* Green prompt color */
-       }
-       
-       #terminal-input {
-           color: #7DF9FF; /* Electric blue text color for input */
-           border: none;
-           background: transparent;
-           font-family: "Courier New", Courier, monospace;
-           font-size: 16px;
-           outline: none;
-       }
-</style>
-  <style>
- 
-.skills { padding-block: var(--section-padding); }
+<title>ɢʟɪᴛᴄʜ-ɢᴀᴅɢᴇᴛꜱ</title>
+<script src="https://cdn.jsdelivr.net/npm/appwrite@10.1.0" />
+<script>
+    const { Client } = Appwrite;
+</script>
+    <script>
+    const client = new Client();
 
-.skills-content { margin-bottom: 50px; }
-
-.skills-toggle {
-  background: var(--bg-secondary);
-  position: relative;
-  width: max-content;
-  margin-inline: auto;
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  border-radius: 100px;
-  box-shadow: var(--shadow-1);
-  z-index: 1;
-}
-
-.skills-toggle::before {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  bottom: 5px;
-  width: 93px;
-  background: var(--raw-seinna);
-  border-radius: 100px;
-  transition: var(--transition-1);
-  z-index: -1;
-}
-
-.skills-toggle.active::before {
-  left: 98px;
-  width: 94px;
-}
-
-.toggle-btn {
-  color: var(--color-primary);
-  font-family: var(--ff-poppins);
-  padding: 5px 25px;
-  transition: var(--transition-1);
-}
-
-.toggle-btn.active { color: var(--white); }
-
-.skills-box.active .skills-list,
-.skills-box .tools-list { display: none; }
-
-.skills-box .skills-list,
-.skills-box.active .tools-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-@keyframes fadeIn {
-
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-
-}
-
-.skill-card {
-  position: relative;
-  background: var(--bg-secondary);
-  width: 80px;
-  height: 80px;
-  display: grid;
-  place-items: center;
-  border-radius: var(--radius-12);
-  box-shadow: var(--shadow-1);
-  cursor: help;
-}
-
-.skill-card:hover .tooltip {
-  transform: translateY(0);
-  opacity: 1;
-}
- /**
-   * SKILLS
-   */
-
-   .skills {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 50px;
-  }
-
-  .skills-content { margin-bottom: 0; }
-
-  .skills-toggle { margin-inline: 0; }
-
-
-
-  </style>
-</head>
-
-<body>
-
-
-  <main>
-
-   
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-         
-  <button id="login-btn" onclick="login()">Login with Discord</button>
+client
+    .setEndpoint('https://cloud.appwrite.io/v1')
+    .setProject('6475f0d04024eb59ab0a');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code-glitchers.github.io/style.css">
+    <meta name="application-name" content="ɢʟɪᴛᴄʜ-ɢᴀᴅɢᴇᴛꜱ" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="description" content="ᴜᴘɢʀᴀᴅᴇ ʏᴏᴜʀ ᴛᴇᴄʜ ᴀɴᴅ ɢᴀᴍɪɴɢ  ᴡɪᴛʜ ɢʟɪᴛᴄʜ ɢᴀᴅɢᴇᴛꜱ. ᴄʜᴀᴛ ᴛᴏ ᴇxᴘʟᴏʀᴇ ᴘᴇʀꜱᴏɴᴀʟɪᴢᴇᴅ ᴘɪᴄᴋꜱ ꜰᴏʀ ᴇʟᴇᴄᴛʀᴏɴɪᴄꜱ, ᴄᴏᴍᴘᴜᴛᴇʀ ᴀᴄᴄᴇꜱꜱᴏʀɪᴇꜱ, ᴀɴᴅ ɢᴀᴍɪɴɢ ɢᴇᴀʀ. ᴇʟᴇᴠᴀᴛᴇ ʏᴏᴜʀ ꜱʜᴏᴘᴘɪɴɢ ᴇxᴘᴇʀɪᴇɴᴄᴇ, ᴏɴᴇ ᴍᴇꜱꜱᴀɢᴇ ᴀᴛ ᴀ ᴛɪᴍᴇ." />
+    <meta name="keywords" content="ɢʟɪᴛᴄʜ-ɢᴀᴅɢᴇᴛꜱ, glitch-gadegts, styx, code-glitch," />
+    <meta name="author" content="ciph3r" />
+    <link rel="manifest" href="https://code-glitchers.github.io/Glitch-Gadgets/manifest.json" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <meta property="og:image" content="https://code-glitchers.github.io/Glitch-Gadgets/banner.png" />
+  
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ɢʟɪᴛᴄʜ-ɢᴀᴅɢᴇᴛꜱ">
+    <meta name="twitter:description" content="ᴜᴘɢʀᴀᴅᴇ ʏᴏᴜʀ ᴛᴇᴄʜ ᴀɴᴅ ɢᴀᴍɪɴɢ  ᴡɪᴛʜ ɢʟɪᴛᴄʜ ɢᴀᴅɢᴇᴛꜱ. ᴄʜᴀᴛ ᴛᴏ ᴇxᴘʟᴏʀᴇ ᴘᴇʀꜱᴏɴᴀʟɪᴢᴇᴅ ᴘɪᴄᴋꜱ ꜰᴏʀ ᴇʟᴇᴄᴛʀᴏɴɪᴄꜱ, ᴄᴏᴍᴘᴜᴛᴇʀ ᴀᴄᴄᴇꜱꜱᴏʀɪᴇꜱ, ᴀɴᴅ ɢᴀᴍɪɴɢ ɢᴇᴀʀ. ᴇʟᴇᴠᴀᴛᴇ ʏᴏᴜʀ ꜱʜᴏᴘᴘɪɴɢ ᴇxᴘᴇʀɪᴇɴᴄᴇ, ᴏɴᴇ ᴍᴇꜱꜱᴀɢᴇ ᴀᴛ ᴀ ᴛɪᴍᴇ.">
+    <meta name="twitter:image" content="https://code-glitchers.github.io/Glitch-Gadgets/banner.png">
+  
+ <link rel="icon" href="https://code-glitchers.github.io/Glitch-Gadgets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://code-glitchers.github.io/Glitch-Gadgets/favicon.ico" type="image/x-icon">
+  
 
   
 
-    <script>
-        // Replace with your Discord application's client ID and redirect URI
-        const clientId = '1001933562565644338';
-        const redirectUri = 'https://t0xicn3t.github.io/home.html';
 
-        function login() {
-            window.location.href = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=identify`;
-        }
 
-        function handleLogin() {
-            const hash = window.location.hash.substring(1);
-            const params = new URLSearchParams(hash);
-
-            const accessToken = params.get('access_token');
-            if (accessToken) {
-                fetch('https://discord.com/api/users/@me', {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    displayUserInfo(data);
-                })
-                .catch(error => console.error('Error fetching user info:', error));
-            }
-        }
-
-        function displayUserInfo(user) {
-            document.getElementById('login-btn').style.display = 'none';
-            document.getElementById('user-info').style.display = 'block';
-            document.getElementById('avatar').src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
-            document.getElementById('username').innerText = user.username;
-            // You can access more user data from the 'user' object and update the corresponding elements
-        }
-
-        // Check if the page was redirected from Discord with access token
-        if (window.location.hash.includes('access_token')) {
-            handleLogin();
-        }
-    </script>
-
-        
-        
-        
-        
-        
-          <pre>  <div id="user-info">
-        <img id="avatar" alt="User Avatar">
-        <h1 id="username"></h2>
-        <p id="aboutme"></p>
-        <p id="role"></p>
-        <p id="activity"></p>
-    </div> 
-          </pre>
-        </div>
-       
-         
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:cubedimension@protonmail.com" class="contact-link">cubedimension@protonmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="https://ai.glitch" class="contact-link">+1 87974388854</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-        
-      </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Neon Alley 77, Kowloon Walled City, Hong Kong</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://github.com/haydenzbanz/" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://twitter.com/0x_hayd3n" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.instagram.com/0x_hayden" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button onclick="window.location.href='blog.html'" class="navbar-link" data-nav-link>Blog</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" onclick="window.location.href='portfolio.html'" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button  onclick="window.location.href='#'" class="navbar-link" data-nav-link>Courses</button>
-          </li>
-<li class="navbar-item">
-  <button class="navbar-link" onclick="window.location.href='contact.html'">Contact</button>
-</li>
-
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">chatter box</h2>
-        </header>
-
-        <section class="about-text">
-		
-		<style>
-			
-			
-		</style>
-          <p><h6 class="gradient-text">
-           
-
-
-    <pre id="terminal-output">
-    [Hᴀʏᴅᴇɴ@ʀᴏᴏᴛ ~/ɢʟɪᴛᴄʜ]$ 
-    ɢʟɪᴛᴄʜᴠᴇɴᴏᴍ -ᴘ ᴀɴᴅʀᴏɪᴅ ʟʜsᴏᴛ=ɢʟɪᴛᴄʜ.ɴɢʀᴏᴋ.ɪᴏ ʟᴘᴏʀᴛ=80 R> ʀᴇᴍᴏᴛᴇsʜᴇʟʟ.ᴀᴘᴋ
-
-
- [Hayden@root ~/glitch]$
-    </pre>
-    <div class="container">
-      <input type="text" id="sender-id" placeholder="Sender ID" width="30">      <input type="text" id="recipient" placeholder="Recipient" width="30"> <input type="text" id="message" placeholder="Message" width="50"><input type="file" id="file-input">
-    
-      <button onclick="sendMessage()"><ion-icon name="paper-plane"></ion-icon></button>
-  </div>
- 
-
-  <style>
-    /* Style for the container div */
-    .container {
-        display: flex;
-        align-items: center;
-    }
-
-    /* Style for the input elements */
-    input[type="text"] {
-        border: none;
-        background: transparent;
-        font-family: "Courier New", Courier, monospace;
-        font-size: 16px;
-        color: #7DF9FF; /* Electric blue text color */
-        outline: none;
-        margin-right: 10px; /* Add spacing between input elements */
-    }
-
-    /* Style for the button */
-    button {
-        background: transparent;
-        font-family: "Courier New", Courier, monospace;
-        font-size: 16px;
-        color: #7DF9FF; /* Electric blue text color */
-        border: none;
-        outline: none;
-        cursor: pointer;
-    }
+  
+</head>
+<body>
+
+ <style>
+  .link-container {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .link-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
 </style>
 
 
 
 
+<style>.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.centered-image {
+  width: 80px;
+  height: 80px;
+}
+
+.header-text {
+  margin-left: 10px; /* Adjust the margin as needed */
+}
+
+
+
+
+
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    max-width: 300px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.product img {
+    max-width: 100%;
+}
+
+.price {
+    font-weight: bold;
+    color: #d63031;
+    margin-top: 10px;
+}
+
+.add-to-cart {
+    background-color: #d63031;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+    .product {
+        max-width: 100%;
+    }
+    
+    .product-container {
+        justify-content: flex-start; /* Align products to the left on small screens */
+    }
+}
+
+
+
+
+
+  
+</style>
+
+ 
+  
+
+    <header>
+<div class="header-container">
+  <img src="glitch-gadegts.png" alt="Glitch Gadgets" class="centered-image">
+      <div id="example">
+        <h2 class="header-text">ɢʟɪᴛᴄʜ-ɢᴀᴅɢᴇᴛꜱ</h1>
+       
+      </div>
+</div>
+ <p>✦ʟᴇᴛ ɢᴀᴅɢᴇᴛ ɢʟɪᴛᴄʜ,ʟᴇᴛ ʏᴏᴜʀ ᴍɪɴᴅ ᴛʀᴀɴꜱᴄᴇɴᴅ✦</p>
+    <style>
+        #userInfo {
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        #userInfo p {
+            display: inline;
+        }
+    </style>
+       <style>
+  .social {
+    display: flex;
+    align-items: center;
+        }
+
+     
+    
+    </style>
+    <br>
+ <button id="loginButton">Login with Discord</button>
+ 
+    <div id="userInfo" style="display: none;">
+ <div class="social">   <img id="avatar" alt="User Avatar" crossOrigin="anonymous"> <p id="username"></p></div>
+   
+</div>
+   
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="discord.js"></script>
+ 
+       
+    
+        <nav class="navbar">
+
+          <ul class="navbar-list">
+  
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>About Us</button>
+            </li>
+  
+            <li class="navbar-item">
+              <button onclick="window.location.href='tools.html'" class="navbar-link active" data-nav-link>Tools we use</button>
+            </li>
+  
+            <li class="navbar-item">
+              <button class="navbar-link" onclick="window.location.href='product.html'" data-nav-link>Product & services</button>
+            </li>
+  
+
+  <li class="navbar-item">
+    <button class="navbar-link" onclick="window.location.href='contact.html'">Contact Us</button>
+  </li>
+  
+          </ul>
+  
+        </nav>
+    </header>
+
+
+    <header class="headerX">
+    <article class="about  active" data-page="about">
+
+
+<style>
+ #search-container {
+    text-align: center;
+    padding: 20px;
+  }
+  #search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  #results {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 400px;
+  }
+  .small-results a {
+    padding: 5px;
+    font-size: 12px;
+  }
+  .small-results img {
+    max-width: 50px;
+    height: auto;
+  }
+
+</style>
+<script>
+function showResult(str) {
+  var resultsDiv = document.getElementById("results");
+  var searchInput = document.getElementById("search-input");
+  
+  if (str.length > 0) {
+    resultsDiv.classList.add("small-results");
+  } else {
+    resultsDiv.classList.remove("small-results");
+  }
+  
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      displayResults(this.responseXML, str);
+    }
+  };
+  xmlhttp.open("GET", "links.xml", true);
+  xmlhttp.send();
+}
+
+function displayResults(xml, searchQuery) {
+  var resultsDiv = document.getElementById("results");
+  resultsDiv.innerHTML = "";
+
+  var links = xml.getElementsByTagName("link");
+  for (var i = 0; i < links.length; i++) {
+    var title = links[i].getElementsByTagName("title")[0].textContent;
+    var url = links[i].getElementsByTagName("url")[0].textContent;
+    var image = links[i].getElementsByTagName("image")[0].textContent;
+
+    if (title.toLowerCase().includes(searchQuery.toLowerCase())) {
+      var linkElem = document.createElement("a");
+      linkElem.href = url;
+      linkElem.target = "_blank";
+
+      var titleElem = document.createElement("div");
+      titleElem.innerHTML = title;
+      linkElem.appendChild(titleElem);
+
+      var imageElem = document.createElement("img");
+      imageElem.src = image;
+      linkElem.appendChild(imageElem);
+
+      resultsDiv.appendChild(linkElem);
+    }
+  }
+}
+</script>
+
+
+<div id="search-container">
+  <input type="text" id="search-input" placeholder="Search..." onkeyup="showResult(this.value)">
+</div>
+<div id="results"></div>
+
+
+
+
+
+
+
+      
 
 
 
@@ -436,6 +316,253 @@
 
 
 
+
+
+
+ <div class="product-container" id="productContainer">
+        <!-- Product elements will be added here using JavaScript -->
+    </div>
+    <script src="script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+      
+
+      </article>
+
+  </header>
+    
+
+      
+ <!--
+    - custom js link
+  -->
+  
+  
+  <script src="https://karthithehacker.com/assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+  'use strict';
+
+
+
+// element toggle function
+const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+
+
+
+// sidebar variables
+const sidebar = document.querySelector("[data-sidebar]");
+const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+
+// sidebar toggle functionality for mobile
+sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+
+
+
+// testimonials variables
+const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
+const modalContainer = document.querySelector("[data-modal-container]");
+const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
+const overlay = document.querySelector("[data-overlay]");
+
+// modal variable
+const modalImg = document.querySelector("[data-modal-img]");
+const modalTitle = document.querySelector("[data-modal-title]");
+const modalText = document.querySelector("[data-modal-text]");
+
+// modal toggle function
+const testimonialsModalFunc = function () {
+  modalContainer.classList.toggle("active");
+  overlay.classList.toggle("active");
+}
+
+// add click event to all modal items
+for (let i = 0; i < testimonialsItem.length; i++) {
+
+  testimonialsItem[i].addEventListener("click", function () {
+
+    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
+    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+
+    testimonialsModalFunc();
+
+  });
+
+}
+
+// add click event to modal close button
+modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+overlay.addEventListener("click", testimonialsModalFunc);
+
+
+
+// custom select variables
+const select = document.querySelector("[data-select]");
+const selectItems = document.querySelectorAll("[data-select-item]");
+const selectValue = document.querySelector("[data-selecct-value]");
+const filterBtn = document.querySelectorAll("[data-filter-btn]");
+
+select.addEventListener("click", function () { elementToggleFunc(this); });
+
+// add event in all select items
+for (let i = 0; i < selectItems.length; i++) {
+  selectItems[i].addEventListener("click", function () {
+
+    let selectedValue = this.innerText.toLowerCase();
+    selectValue.innerText = this.innerText;
+    elementToggleFunc(select);
+    filterFunc(selectedValue);
+
+  });
+}
+
+// filter variables
+const filterItems = document.querySelectorAll("[data-filter-item]");
+
+const filterFunc = function (selectedValue) {
+
+  for (let i = 0; i < filterItems.length; i++) {
+
+    if (selectedValue === "all") {
+      filterItems[i].classList.add("active");
+    } else if (selectedValue === filterItems[i].dataset.category) {
+      filterItems[i].classList.add("active");
+    } else {
+      filterItems[i].classList.remove("active");
+    }
+
+  }
+
+}
+
+// add event in all filter button items for large screen
+let lastClickedBtn = filterBtn[0];
+
+for (let i = 0; i < filterBtn.length; i++) {
+
+  filterBtn[i].addEventListener("click", function () {
+
+    let selectedValue = this.innerText.toLowerCase();
+    selectValue.innerText = this.innerText;
+    filterFunc(selectedValue);
+
+    lastClickedBtn.classList.remove("active");
+    this.classList.add("active");
+    lastClickedBtn = this;
+
+  });
+
+}
+
+
+
+// contact form variables
+const form = document.querySelector("[data-form]");
+const formInputs = document.querySelectorAll("[data-form-input]");
+const formBtn = document.querySelector("[data-form-btn]");
+
+// add event to all form input field
+for (let i = 0; i < formInputs.length; i++) {
+  formInputs[i].addEventListener("input", function () {
+
+    // check form validation
+    if (form.checkValidity()) {
+      formBtn.removeAttribute("disabled");
+    } else {
+      formBtn.setAttribute("disabled", "");
+    }
+
+  });
+}
+
+
+
+// page navigation variables
+const navigationLinks = document.querySelectorAll("[data-nav-link]");
+const pages = document.querySelectorAll("[data-page]");
+
+// add event to all nav link
+for (let i = 0; i < navigationLinks.length; i++) {
+  navigationLinks[i].addEventListener("click", function () {
+
+    for (let i = 0; i < pages.length; i++) {
+      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+        pages[i].classList.add("active");
+        navigationLinks[i].classList.add("active");
+        window.scrollTo(0, 0);
+      } else {
+        pages[i].classList.remove("active");
+        navigationLinks[i].classList.remove("active");
+      }
+    }
+
+  });
+}</script>   
+
+
+
+
+  <script>$(document).ready(function() {
+    const clientId = "1001933562565644338"; // Replace with your actual client ID
+    const redirectUri = "https://code-glitchers.github.io/Glitch-Gadgets/"; // Your actual redirect URI
+    const scope = "identify";
+
+    const loginButton = $("#loginButton");
+    const userInfoDiv = $("#userInfo");
+    const avatarElement = $("#avatar");
+    const usernameElement = $("#username");
+
+    loginButton.click(function() {
+        window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${scope}`;
+    });
+
+    function parseHashParams() {
+        const hash = window.location.hash.substring(1);
+        const params = hash.split("&").reduce(function(acc, item) {
+            const [key, value] = item.split("=");
+            acc[key] = decodeURIComponent(value);
+            return acc;
+        }, {});
+        return params;
+    }
+
+    const params = parseHashParams();
+    if (params.access_token) {
+        localStorage.setItem('discordAccessToken', params.access_token);
+
+        fetch("https://discord.com/api/users/@me", {
+            headers: {
+                Authorization: `Bearer ${params.access_token}`,
+            },
+        })
+        .then(response => response.json())
+        .then(user => {
+            const avatarUrl = user.avatar ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png` : "https://discord.com/assets/322c936a8c8be1b803cd94861bdfa868.png";
+            avatarElement.attr("src", avatarUrl);
+            usernameElement.text(`Hello, ${user.username}#${user.discriminator}!`);
+            userInfoDiv.show();
+            loginButton.hide();
+        })
+        .catch(error => {
+            console.error("Error fetching user data:", error);
+        });
+    }
+});</script>
 </body>
-
 </html>
