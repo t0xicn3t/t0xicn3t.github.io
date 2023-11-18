@@ -1,6 +1,16 @@
-<html lang="en">
 
+<!DOCTYPE html>
+<html>
 <head>
+  <link rel="stylesheet" href="https://code-glitchers.github.io/stylex.css">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+ <link rel="icon" href="https://code-glitchers.github.io/Glitch-Gadgets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://code-glitchers.github.io/Glitch-Gadgets/favicon.ico" type="image/x-icon">
+  
+
   <title>t0xicn3t</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="discord.js"></script>
@@ -150,437 +160,314 @@
 
 
   </style>
-</head>
 
+
+
+  
+</head>
 <body>
 
-
-  <main>
-
-   
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-         
-  <button id="login-btn" onclick="login()">Login with Discord</button>
-
-  
-
-    <script>
-        // Replace with your Discord application's client ID and redirect URI
-        const clientId = '1001933562565644338';
-        const redirectUri = 'https://t0xicn3t.github.io/home.html';
-
-        function login() {
-            window.location.href = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=identify`;
-        }
-
-        function handleLogin() {
-            const hash = window.location.hash.substring(1);
-            const params = new URLSearchParams(hash);
-
-            const accessToken = params.get('access_token');
-            if (accessToken) {
-                fetch('https://discord.com/api/users/@me', {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    displayUserInfo(data);
-                })
-                .catch(error => console.error('Error fetching user info:', error));
-            }
-        }
-
-        function displayUserInfo(user) {
-            document.getElementById('login-btn').style.display = 'none';
-            document.getElementById('user-info').style.display = 'block';
-            document.getElementById('avatar').src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
-            document.getElementById('username').innerText = user.username;
-            // You can access more user data from the 'user' object and update the corresponding elements
-        }
-
-        // Check if the page was redirected from Discord with access token
-        if (window.location.hash.includes('access_token')) {
-            handleLogin();
-        }
-    </script>
-
-        
-        
-        
-        
-        
-          <pre>  <div id="user-info">
-        <img id="avatar" alt="User Avatar">
-        <h1 id="username"></h2>
-        <p id="aboutme"></p>
-        <p id="role"></p>
-        <p id="activity"></p>
-    </div> 
-          </pre>
-        </div>
-       
-         
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:cubedimension@protonmail.com" class="contact-link">cubedimension@protonmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="https://ai.glitch" class="contact-link">+1 87974388854</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-        
-      </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Neon Alley 77, Kowloon Walled City, Hong Kong</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://github.com/haydenzbanz/" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://twitter.com/0x_hayd3n" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.instagram.com/0x_hayden" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button onclick="window.location.href='blog.html'" class="navbar-link" data-nav-link>Blog</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" onclick="window.location.href='portfolio.html'" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button  onclick="window.location.href='#'" class="navbar-link" data-nav-link>Courses</button>
-          </li>
-<li class="navbar-item">
-  <button class="navbar-link" onclick="window.location.href='contact.html'">Contact</button>
-</li>
-
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">chatter box</h2>
-        </header>
-
-        <section class="about-text">
-		
-		<style>
-			
-			
-		</style>
-          <p><h6 class="gradient-text">
-           
-
-
-    <pre id="terminal-output">
-    [Hᴀʏᴅᴇɴ@ʀᴏᴏᴛ ~/ɢʟɪᴛᴄʜ]$ 
-    ɢʟɪᴛᴄʜᴠᴇɴᴏᴍ -ᴘ ᴀɴᴅʀᴏɪᴅ ʟʜsᴏᴛ=ɢʟɪᴛᴄʜ.ɴɢʀᴏᴋ.ɪᴏ ʟᴘᴏʀᴛ=80 R> ʀᴇᴍᴏᴛᴇsʜᴇʟʟ.ᴀᴘᴋ
-
-
- [Hayden@root ~/glitch]$
-    </pre>
-    <div class="container">
-      <input type="text" id="sender-id" placeholder="Sender ID" width="30">      <input type="text" id="recipient" placeholder="Recipient" width="30"> <input type="text" id="message" placeholder="Message" width="50"><input type="file" id="file-input">
-    
-      <button onclick="sendMessage()"><ion-icon name="paper-plane"></ion-icon></button>
-  </div>
- 
-
-  <style>
-    /* Style for the container div */
-    .container {
-        display: flex;
-        align-items: center;
-    }
-
-    /* Style for the input elements */
-    input[type="text"] {
-        border: none;
-        background: transparent;
-        font-family: "Courier New", Courier, monospace;
-        font-size: 16px;
-        color: #7DF9FF; /* Electric blue text color */
-        outline: none;
-        margin-right: 10px; /* Add spacing between input elements */
-    }
-
-    /* Style for the button */
-    button {
-        background: transparent;
-        font-family: "Courier New", Courier, monospace;
-        font-size: 16px;
-        color: #7DF9FF; /* Electric blue text color */
-        border: none;
-        outline: none;
-        cursor: pointer;
-    }
+ <style>
+  .link-container {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .link-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
 </style>
 
 
 
 
+<style>.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.centered-image {
+  width: 80px;
+  height: 80px;
+}
+
+.header-text {
+  margin-left: 10px; /* Adjust the margin as needed */
+}
 
 
 
 
 
 
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    max-width: 300px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.product img {
+    max-width: 100%;
+}
+
+.price {
+    font-weight: bold;
+    color: #d63031;
+    margin-top: 10px;
+}
+
+.add-to-cart {
+    background-color: #d63031;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+    .product {
+        max-width: 100%;
+    }
+    
+    .product-container {
+        justify-content: flex-start; /* Align products to the left on small screens */
+    }
+}
+
+
+
+
+
+  
+</style>
+
+ 
+  
+
+    <header>
+<div class="header-container">
+  <img src="glitch-gadegts.png" alt="Glitch Gadgets" class="centered-image">
+      <div id="example">
+        <h2 class="header-text">ɢʟɪᴛᴄʜ-ɢᴀᴅɢᴇᴛꜱ</h1>
+       
+      </div>
+</div>
+ <p>✦ʟᴇᴛ ɢᴀᴅɢᴇᴛ ɢʟɪᴛᴄʜ,ʟᴇᴛ ʏᴏᴜʀ ᴍɪɴᴅ ᴛʀᴀɴꜱᴄᴇɴᴅ✦</p>
+    <style>
+        #userInfo {
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        #userInfo p {
+            display: inline;
+        }
+    </style>
+       <style>
+  .social {
+    display: flex;
+    align-items: center;
+        }
+
+     
+    
+    </style>
+    <br>
+ <button id="loginButton">Login with Discord</button>
+ 
+    <div id="userInfo" style="display: none;">
+ <div class="social">   <img id="avatar" alt="User Avatar" crossOrigin="anonymous"> <p id="username"></p></div>
+   
+</div>
+   
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="discord.js"></script>
+ 
+       
+    
+        <nav class="navbar">
+
+          <ul class="navbar-list">
+  
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>About Us</button>
+            </li>
+  
+            <li class="navbar-item">
+              <button onclick="window.location.href='tools.html'" class="navbar-link active" data-nav-link>Tools we use</button>
+            </li>
+  
+            <li class="navbar-item">
+              <button class="navbar-link" onclick="window.location.href='product.html'" data-nav-link>Product & services</button>
+            </li>
+  
+
+  <li class="navbar-item">
+    <button class="navbar-link" onclick="window.location.href='contact.html'">Contact Us</button>
+  </li>
+  
+          </ul>
+  
+        </nav>
+    </header>
+
+
+    <header class="headerX">
+    <article class="about  active" data-page="about">
+
+
+<style>
+ #search-container {
+    text-align: center;
+    padding: 20px;
+  }
+  #search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  #results {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 400px;
+  }
+  .small-results a {
+    padding: 5px;
+    font-size: 12px;
+  }
+  .small-results img {
+    max-width: 50px;
+    height: auto;
+  }
+
+</style>
 <script>
-  // Function to handle user input and display it in the terminal
-  function processInput(event) {
-      if (event.key === "Enter") {
-          sendMessage();
-      }
+function showResult(str) {
+  var resultsDiv = document.getElementById("results");
+  var searchInput = document.getElementById("search-input");
+  
+  if (str.length > 0) {
+    resultsDiv.classList.add("small-results");
+  } else {
+    resultsDiv.classList.remove("small-results");
   }
+  
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      displayResults(this.responseXML, str);
+    }
+  };
+  xmlhttp.open("GET", "links.xml", true);
+  xmlhttp.send();
+}
 
-  // Function to send a message with a file to Discord webhook
-  async function sendMessage() {
-      const senderId = document.getElementById("sender-id").value;
-      const recipient = document.getElementById("recipient").value;
-      const message = document.getElementById("message").value;
-      const fileInput = document.getElementById("file-input");
-      const outputElement = document.getElementById("terminal-output");
+function displayResults(xml, searchQuery) {
+  var resultsDiv = document.getElementById("results");
+  resultsDiv.innerHTML = "";
 
-      // Create a new line with the user's input
-      const newLine = document.createElement("div");
-      newLine.style.color = "#7DF9FF"; // Electric blue text color
-      newLine.textContent = " [Hayden@root ~/glitch]$ send-discord-message -s " + senderId + " -r " + recipient + " -m " + message;
+  var links = xml.getElementsByTagName("link");
+  for (var i = 0; i < links.length; i++) {
+    var title = links[i].getElementsByTagName("title")[0].textContent;
+    var url = links[i].getElementsByTagName("url")[0].textContent;
+    var image = links[i].getElementsByTagName("image")[0].textContent;
 
-      // Append the user input to the terminal output
-      outputElement.appendChild(newLine);
+    if (title.toLowerCase().includes(searchQuery.toLowerCase())) {
+      var linkElem = document.createElement("a");
+      linkElem.href = url;
+      linkElem.target = "_blank";
 
-      // Prepare the payload for Discord webhook
-      const formData = new FormData();
-      formData.append("content", message);
-      formData.append("recipient", recipient);
-      formData.append("username", senderId);
-      formData.append("file", fileInput.files[0]); // Add the selected file
+      var titleElem = document.createElement("div");
+      titleElem.innerHTML = title;
+      linkElem.appendChild(titleElem);
 
-      // Replace 'YOUR_DISCORD_WEBHOOK_URL' with your actual Discord webhook URL
-      const webhookUrl = 'https://discord.com/api/webhooks/1174523479677227130/SSlygPthMQmPSgli8suUEDOarVvR414A_yKhAtBchQH3jp3hMuM08BVs2v2ecb2IjsMc';
+      var imageElem = document.createElement("img");
+      imageElem.src = image;
+      linkElem.appendChild(imageElem);
 
-      try {
-          // Send the message with the file to the Discord webhook using a POST request
-          const response = await fetch(webhookUrl, {
-              method: 'POST',
-              body: formData,
-          });
-
-          if (response.ok) {
-              // Display success message in terminal output
-              const responseLine = document.createElement("div");
-              responseLine.style.color = "#7DF9FF"; // Electric blue text color
-              responseLine.textContent = "Mᴇssᴀɢᴇ sᴇɴᴛ sᴜᴄᴄᴇssғᴜʟʟʏ.";
-              outputElement.appendChild(responseLine);
-          } else {
-              // Display error message in terminal output
-              const errorLine = document.createElement("div");
-              errorLine.style.color = "red";
-              errorLine.textContent = "Eʀʀᴏʀ: Fᴀɪʟᴇᴅ ᴛᴏ sᴇɴᴅ ᴍᴇssᴀɢᴇ.";
-              outputElement.appendChild(errorLine);
-          }
-      } catch (error) {
-          // Handle network or other errors
-          const errorLine = document.createElement("div");
-          errorLine.style.color = "red";
-          errorLine.textContent = "Error: " + error.message;
-          outputElement.appendChild(errorLine);
-      }
-
-      // Clear the input fields
-      document.getElementById("sender-id").value = "";
-      document.getElementById("recipient").value = "";
-      document.getElementById("message").value = "";
-      fileInput.value = ""; // Clear the file input
+      resultsDiv.appendChild(linkElem);
+    }
   }
+}
 </script>
 
-    
-<style>
-  /* Style for shields */
-  .shields {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-  }
 
-  .shield {
-      margin: 5px;
-  }
-
-  /* Style for contact links */
-  .contact-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-  }
-
-  .contact-link {
-      margin: 5px;
-  }
-</style>
+<div id="search-container">
+  <input type="text" id="search-input" placeholder="Search..." onkeyup="showResult(this.value)">
+</div>
+<div id="results"></div>
 
 
 
-  
-  
-  
-  
-  
-  
-  
-   
-          </p>
-        </section>
-       
-	    
-	    
-	     <!--
-          - service github
-        -->
-	    
-	  
-          
+
+
+
 
       
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="product-container" id="productContainer">
+        <!-- Product elements will be added here using JavaScript -->
+    </div>
+    <script src="script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+      
 
       </article>
 
+  </header>
+    
 
-
-
-
-     
       
-
-   
-
-    </div>
-
-  </main>
-
-  <style>
-    /* Hide the audio element */
-    #greetingAudio {
-        display: none;
-    }
-</style> <audio id="greetingAudio" autoplay>
-  <source src="audio.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
- <script src="https://karthithehacker.com/assets/js/script.js"></script>
+ <!--
+    - custom js link
+  -->
+  
+  
+  <script src="https://karthithehacker.com/assets/js/script.js"></script>
 
   <!--
     - ionicon link
@@ -746,16 +633,56 @@ for (let i = 0; i < navigationLinks.length; i++) {
     }
 
   });
-}</script>
+}</script>   
 
 
 
 
+  <script>$(document).ready(function() {
+    const clientId = "1001933562565644338"; // Replace with your actual client ID
+    const redirectUri = "https://t0xicn3t.github.io/home.html"; // Your actual redirect URI
+    const scope = "identify";
 
+    const loginButton = $("#loginButton");
+    const userInfoDiv = $("#userInfo");
+    const avatarElement = $("#avatar");
+    const usernameElement = $("#username");
 
+    loginButton.click(function() {
+        window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${scope}`;
+    });
 
+    function parseHashParams() {
+        const hash = window.location.hash.substring(1);
+        const params = hash.split("&").reduce(function(acc, item) {
+            const [key, value] = item.split("=");
+            acc[key] = decodeURIComponent(value);
+            return acc;
+        }, {});
+        return params;
+    }
 
+    const params = parseHashParams();
+    if (params.access_token) {
+        localStorage.setItem('discordAccessToken', params.access_token);
 
+        fetch("https://discord.com/api/users/@me", {
+            headers: {
+                Authorization: `Bearer ${params.access_token}`,
+            },
+        })
+        .then(response => response.json())
+        .then(user => {
+            const avatarUrl = user.avatar ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png` : "https://discord.com/assets/322c936a8c8be1b803cd94861bdfa868.png";
+            avatarElement.attr("src", avatarUrl);
+            usernameElement.text(`Hello, ${user.username}#${user.discriminator}!`);
+            userInfoDiv.show();
+            loginButton.hide();
+        })
+        .catch(error => {
+            console.error("Error fetching user data:", error);
+        });
+    }
+});</script>
 </body>
-
 </html>
